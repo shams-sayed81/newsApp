@@ -1,0 +1,26 @@
+{
+  "home_title": "الرئيسية",
+  "search_icon_tooltip": "بحث",
+  "back_home": "العودة للرئيسية",
+  "view_all": "عرض الكل",
+  "theme": "الوضع",
+  "choose_theme": "اختر الوضع :",
+  "light_theme": "فاتح",
+  "dark_theme": "داكن",
+  "language": "اللغة",
+  "choose_language": "اختر اللغة :",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "news_app_title": "تطبيق الأخبار",
+  "welcome_message": "صباح الخير\nإليك بعض الأخبار لك",
+  "category_general": "عام",
+  "category_business": "أعمال",
+  "category_sports": "رياضة",
+  "category_health": "صحة",
+  "category_science": "علوم",
+  "category_technology": "تكنولوجيا",
+  "category_entertainment": "ترفيه"
+
+
+
+}
