@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_app/core/appStyle.dart';
 import 'package:new_app/model/CategoryModel.dart';
 
+import '../../../core/colors_manager.dart';
+
 class Category extends StatelessWidget {
-  CategoryModel categoryModel;
-   void Function () onCategoryTap ;
-   Category({required this.categoryModel , required this.onCategoryTap});
+ final CategoryModel categoryModel;
+  final void Function (CategoryModel) onCategoryTap ;
+  const Category({super.key, required this.categoryModel ,
+    required this.onCategoryTap});
 
 
   @override
@@ -18,7 +20,7 @@ class Category extends StatelessWidget {
         width: double.infinity,
         height: 198.h,
         decoration: BoxDecoration(
-            color: const Color(0xff121212),
+            color: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(24.r)),
         child: Row(
           children: [
@@ -38,15 +40,15 @@ class Category extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 26.r,
                         fontWeight: FontWeight.w500,
-                        color: Colors.white),
+                        color: ColorsManager.secondary),
                   ),
 
                   ElevatedButton(onPressed: (){
 
-                onCategoryTap();
+                onCategoryTap(categoryModel);
                   },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey,
+                        backgroundColor: ColorsManager.tertiary,
                         padding: EdgeInsets.zero
                       ) ,
                       child: Row(
@@ -54,12 +56,13 @@ class Category extends StatelessWidget {
                         children: [
                           Padding(
                             padding:  REdgeInsetsDirectional.all( 8),
-                            child: Text('View All' ,  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w500 ,color: Colors.black),),
+                            child: Text('View All' ,  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w500 ,
+                            ),),
                           ),
-                         const CircleAvatar(
-                             backgroundColor: Colors.white,
+                          CircleAvatar(
+                             backgroundColor: Theme.of(context).colorScheme.secondary,
                              radius: 30,
-                             child: Icon(Icons.arrow_forward_ios, color: Colors.black,))
+                             child: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.primary))
                         ],
                       ))
                 ],

@@ -1,0 +1,26 @@
+{
+  "home_title": "Home",
+  "search_icon_tooltip": "Search",
+  "back_home": "Go To Home",
+  "view_all": "View All",
+  "theme": "Theme",
+  "choose_theme": "Choose Theme :",
+  "light_theme": "Light",
+  "dark_theme": "Dark",
+  "language": "Language",
+  "choose_language": "Choose Language :",
+  "english": "English",
+  "arabic": "Arabic",
+  "news_app_title": "News App",
+  "welcome_message": "Good Morning\nHere is Some News For You",
+  "category_general": "General",
+  "category_business": "Business",
+  "category_sports": "Sports",
+  "category_health": "Health",
+  "category_science": "Science",
+  "category_technology": "Technology",
+  "category_entertainment": "Entertainment"
+}
+
+
+
