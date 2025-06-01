@@ -87,10 +87,10 @@ class _HomeDrawerState extends State<HomeDrawer> {
                       width: 8.w,
                     ),
                     Text('Theme',
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: ColorsManager.secondary)),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontSize: 20.sp),),
                   ],
                 ),
                 SizedBox(
@@ -151,8 +151,8 @@ class _HomeDrawerState extends State<HomeDrawer> {
                       'Language ',
                       style: Theme.of(context)
                           .textTheme
-                          .displayMedium!
-                          .copyWith(fontSize: 20),
+                          .bodyMedium!
+                          .copyWith(fontSize: 20.sp),
                     ),
                   ],
                 ),
