@@ -18,30 +18,7 @@ class AppStyle {
     ),
     textTheme: TextTheme(
       bodyMedium: TextStyle(
-        fontSize: 16.sp,
         fontWeight: FontWeight.w700,
-        color: ColorsManager.primary,
-
-      ),
-      titleSmall: TextStyle(
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w500,
-        color: ColorsManager.tertiary,
-
-      ),
-
-      bodySmall:TextStyle(
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w500,
-        color: ColorsManager.secondary,
-
-      ) ,
-
-      headlineLarge:TextStyle(
-        fontSize: 24.sp,
-        fontWeight: FontWeight.w500,
-        color: ColorsManager.primary,
-
       ),
 
     ),
@@ -68,34 +45,12 @@ class AppStyle {
     ),
       textTheme: TextTheme(
           bodyMedium: TextStyle(
-              fontSize: 16.sp,
               fontWeight: FontWeight.w700,
               color: ColorsManager.secondary
-          ),
-        headlineLarge:TextStyle(
-          fontSize: 24.sp,
-          fontWeight: FontWeight.w700,
-          color: ColorsManager.secondary,
-
-        ),
-
-        bodySmall:TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w500,
-          color: ColorsManager.primary,
-
-        ) ,
-        titleSmall: TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w500,
-          color: ColorsManager.tertiary,
-
-        ),
       ),
       inputDecorationTheme: InputDecorationTheme(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16.r),
             borderSide: BorderSide(color: ColorsManager.secondary),
-          ),),
   );
 }

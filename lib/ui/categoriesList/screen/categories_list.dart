@@ -14,24 +14,17 @@ class CategoriesList extends StatelessWidget {
   Widget build(BuildContext context) {
     final categories = CategoryModel.getCategoryList();
 
-    return SafeArea(
-      child: Padding(
         padding:  REdgeInsets.only( top: 15.sp, right: 15.sp,left: 15.sp),
         child:   Column(
           children: [
             Text(StringsManager.welcomeMessage.tr(),
-              style: Theme.of(context).textTheme.headlineLarge ),
 
             SizedBox(height: 16.h,) ,
             Expanded(
-              child: ListView.separated(
-                  padding: EdgeInsets.zero,
-                  itemBuilder: (context, index) =>  Category(categoryModel: categories[index], onCategoryTap:onCategoryTap,),
                   separatorBuilder: (context, index) => const SizedBox(height: 16,), itemCount: categories.length),
             )
           ],
         ),
-      ),
     );
   }
 }
