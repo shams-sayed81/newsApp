@@ -17,9 +17,11 @@ class HomeScreen extends StatefulWidget {
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
+
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   bool isShowNews =false;
   CategoryModel? selectedCategory;
   @override
@@ -35,6 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        elevation: 0,
         title: Text(selectedCategory ==null ?
         StringsManager.homeTitle.tr() :
         selectedCategory!.heading),
@@ -51,8 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
 
-      body:
-      isShowNews?const NewsList():
+      body: isShowNews? NewsList(categoryModel: selectedCategory!,):
       CategoriesList(onCategoryTap: onCategorySelected)
     );
   }

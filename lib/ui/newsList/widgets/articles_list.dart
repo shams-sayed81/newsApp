@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/model/SourcesResponses/SourcesResponses.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_app/core/remote/api_manager.dart';
+import 'package:new_app/model/ArticlesResponse/ArticlesResponse.dart';
+import 'package:new_app/model/SourcesResponses/Sources.dart';
 import 'package:new_app/ui/newsList/widgets/article_item.dart';
+
 import '../../../core/colors_manager.dart';
-import '../../../core/remote/api_manager.dart';
-import '../../../model/CategoryModel.dart';
-import '../widgets/articles_list.dart';
 
-class NewsList extends StatefulWidget {
-  final CategoryModel categoryModel;
-
-  const NewsList({super.key, required this.categoryModel});
+class ArticleWidget extends StatefulWidget {
+ final Source source;
+  const ArticleWidget({super.key , required this.source});
 
   @override
-  State<NewsList> createState() => _NewsListState();
+  State<ArticleWidget> createState() => _ArticleWidgetState();
 }
 
-class _NewsListState extends State<NewsList> {
+class _ArticleWidgetState extends State<ArticleWidget> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<SourcesResponses?>(
-      future: ApiManager.getSources(widget.categoryModel.id),
+    return FutureBuilder <ArticlesResponse?>(future: ApiManager.getArticle(widget.source.id!),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
@@ -28,7 +27,6 @@ class _NewsListState extends State<NewsList> {
             ),
           );
         }
-
         if (snapshot.hasError) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
@@ -36,7 +34,7 @@ class _NewsListState extends State<NewsList> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(child: Text(snapshot.error.toString())),
-               const SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
@@ -50,8 +48,7 @@ class _NewsListState extends State<NewsList> {
           );
         }
 
-        final response = snapshot.data;
-
+        var response = snapshot.data;
         if (response?.status == 'error') {
           return Padding(
             padding: const EdgeInsets.all(8.0),
@@ -59,7 +56,7 @@ class _NewsListState extends State<NewsList> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(response?.message ?? 'Something went wrong'),
-               const SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
@@ -72,28 +69,14 @@ class _NewsListState extends State<NewsList> {
             ),
           );
         }
+        final articles = response?.articles ?? [];
 
-        final sources = response?.sources ?? [];
-  
-        return DefaultTabController(
-          length: sources.length,
-          child: Column(
-            children: [
-              TabBar(
-                isScrollable: true,
-                tabAlignment: TabAlignment.start,
-                dividerHeight: 0,
-                indicatorColor: ColorsManager.primary,
-                tabs: sources.map((source) => Tab(text: source.name)).toList(),
-              ),
-              Expanded(
-                child: TabBarView(children: sources.map((source)=>  ArticleWidget(source: source)).toList(),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
+        return ListView.separated(
+           itemBuilder: (context, index) => ArticleItem(article: articles[index], ),
+           separatorBuilder: (context, index) => SizedBox(height: 16.h,),
+           itemCount: articles.length);
+    },);
   }
 }
+
+
