@@ -1,0 +1,50 @@
+[33mdcbbcb4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mapi[m[33m, [m[1;31morigin/api[m[33m)[m HEAD@{0}: checkout: moving from development to api
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{1}: checkout: moving from api to development
+[33mdcbbcb4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mapi[m[33m, [m[1;31morigin/api[m[33m)[m refs/heads/api@{0}: rebase (finish): refs/heads/api onto dcbbcb4b5b4b83f1cc9aa47a8d152a8132b87cd6
+[33mdcbbcb4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mapi[m[33m, [m[1;31morigin/api[m[33m)[m HEAD@{2}: rebase (finish): returning to refs/heads/api
+[33mdcbbcb4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mapi[m[33m, [m[1;31morigin/api[m[33m)[m HEAD@{3}: rebase (start): checkout origin/api
+[33m3aedf5e[m refs/heads/api@{1}: reset: moving to 3aedf5e
+[33m3aedf5e[m HEAD@{4}: reset: moving to 3aedf5e
+[33mdcbbcb4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mapi[m[33m, [m[1;31morigin/api[m[33m)[m HEAD@{5}: checkout: moving from development to api
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{6}: checkout: moving from api to development
+[33mdcbbcb4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mapi[m[33m, [m[1;31morigin/api[m[33m)[m refs/remotes/origin/api@{0}: update by push
+[33mdcbbcb4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mapi[m[33m, [m[1;31morigin/api[m[33m)[m refs/heads/api@{2}: commit (merge): Merge remote-tracking branch 'origin/api' into api
+[33mdcbbcb4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mapi[m[33m, [m[1;31morigin/api[m[33m)[m HEAD@{7}: commit (merge): Merge remote-tracking branch 'origin/api' into api
+[33m3aedf5e[m refs/heads/api@{3}: rebase (finish): refs/heads/api onto 008cdc3679faeb386cabd128bb4c7a52e8ab5234
+[33m3aedf5e[m HEAD@{8}: rebase (finish): returning to refs/heads/api
+[33m3aedf5e[m HEAD@{9}: rebase (continue): fetching data is done
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{10}: rebase (start): checkout HEAD
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{11}: checkout: moving from api to development
+[33m8d62869[m refs/remotes/origin/api@{1}: update by push
+[33m8d62869[m refs/heads/api@{4}: commit (merge): Merge remote-tracking branch 'origin/api' into api
+[33m8d62869[m HEAD@{12}: commit (merge): Merge remote-tracking branch 'origin/api' into api
+[33m5e6c735[m refs/heads/api@{5}: commit (amend): fetching data is done
+[33m5e6c735[m HEAD@{13}: commit (amend): fetching data is done
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m refs/remotes/origin/api@{2}: update by push
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m refs/heads/api@{6}: branch: Reset to HEAD
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{14}: checkout: moving from development to api
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{15}: checkout: moving from api to development
+[33mda16a83[m HEAD@{16}: checkout: moving from api to api
+[33mda16a83[m HEAD@{17}: branch: Reset to origin/api
+[33mda16a83[m refs/remotes/origin/api@{3}: update by push
+[33mda16a83[m HEAD@{18}: checkout: moving from development to api
+[33mb3257d5[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m refs/heads/master@{0}: fetch origin master:master --recurse-submodules=no --progress --prune: fast-forward
+[33mb3257d5[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m refs/remotes/origin/master@{0}: fetch origin master:master --recurse-submodules=no --progress --prune: fast-forward
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{19}: checkout: moving from api to development
+[33mda16a83[m HEAD@{20}: checkout: moving from development to api
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{21}: checkout: moving from api to development
+[33mda16a83[m HEAD@{22}: checkout: moving from master to api
+[33mda16a83[m HEAD@{23}: checkout: moving from development to master
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{24}: checkout: moving from api to development
+[33mda16a83[m HEAD@{25}: checkout: moving from development to api
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m refs/remotes/origin/development@{0}: update by push
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m refs/heads/development@{0}: commit: finish theme
+[33m008cdc3[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{26}: commit: finish theme
+[33mda16a83[m HEAD@{27}: checkout: moving from api to development
+[33mda16a83[m refs/heads/api@{7}: branch: Created from development^0
+[33mda16a83[m HEAD@{28}: checkout: moving from development to api
+[33mda16a83[m refs/heads/development@{1}: branch: Created from origin/master^0
+[33mda16a83[m HEAD@{29}: checkout: moving from master to development
+[33mda16a83[m refs/remotes/origin/master@{1}: update by push
+[33mda16a83[m refs/heads/master@{1}: commit (initial): finish design part 1
+[33mda16a83[m HEAD@{30}: commit (initial): finish design part 1
