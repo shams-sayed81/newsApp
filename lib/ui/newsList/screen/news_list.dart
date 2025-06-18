@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/model/SourcesResponses/SourcesResponses.dart';
-import 'package:new_app/ui/newsList/widgets/article_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_app/ui/newsList/screen/view_model.dart';
 import '../../../core/colors_manager.dart';
-import '../../../core/remote/api_manager.dart';
 import '../../../model/CategoryModel.dart';
 import '../widgets/articles_list.dart';
 
@@ -18,64 +17,38 @@ class NewsList extends StatefulWidget {
 class _NewsListState extends State<NewsList> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<SourcesResponses?>(
-      future: ApiManager.getSources(widget.categoryModel.id),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: CircularProgressIndicator(
-              color: ColorsManager.tertiary,
-            ),
-          );
-        }
+    return BlocProvider(create: (context) => ViewModel()..getSources(widget.categoryModel.id),
+    child: BlocBuilder<ViewModel ,NewsStates>(
+      builder: (context, state) {
+      if (state is NewsLoadingState){
+        return Center(
+          child: CircularProgressIndicator(
+            color: ColorsManager.tertiary,
+          ),
+        );
+      }
+      else if (state is NewsErrorState){
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(child: Text(state.msg)),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
 
-        if (snapshot.hasError) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(child: Text(snapshot.error.toString())),
-               const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-
-                    });
-                  },
-                  child: const Text('Try Again'),
-                ),
-              ],
-            ),
-          );
-        }
-
-        final response = snapshot.data;
-
-        if (response?.status == 'error') {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(response?.message ?? 'Something went wrong'),
-               const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-
-                    });
-                  },
-                  child:const Text('Try Again'),
-                ),
-              ],
-            ),
-          );
-        }
-
-        final sources = response?.sources ?? [];
-  
-        return DefaultTabController(
+                  });
+                },
+                child: const Text('Try Again'),
+              ),
+            ],
+          ),
+        );
+      }else {
+        var sources = (state as NewsSuccessState).sources;
+         return DefaultTabController(
           length: sources.length,
           child: Column(
             children: [
@@ -93,7 +66,9 @@ class _NewsListState extends State<NewsList> {
             ],
           ),
         );
-      },
+      }
+    },),
     );
   }
 }
+

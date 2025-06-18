@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_app/core/remote/api_manager.dart';
-import 'package:new_app/model/ArticlesResponse/ArticlesResponse.dart';
 import 'package:new_app/model/SourcesResponses/Sources.dart';
 import 'package:new_app/ui/newsList/widgets/article_item.dart';
+import 'package:new_app/ui/newsList/widgets/view_model.dart';
 
 import '../../../core/colors_manager.dart';
 
@@ -18,65 +18,50 @@ class ArticleWidget extends StatefulWidget {
 class _ArticleWidgetState extends State<ArticleWidget> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder <ArticlesResponse?>(future: ApiManager.getArticle(widget.source.id!),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: CircularProgressIndicator(
-              color: ColorsManager.tertiary,
-            ),
-          );
-        }
-        if (snapshot.hasError) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(child: Text(snapshot.error.toString())),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
+    return BlocProvider(create: (context) => ArticlesViewModel()..getSources(widget.source.id!),
+    child: BlocBuilder<ArticlesViewModel , ArticleStates>(builder: (context, state) {
 
-                    });
-                  },
-                  child: const Text('Try Again'),
-                ),
-              ],
-            ),
-          );
-        }
+      if (state is ArticleLoadingState){
+        return Center(
+          child: CircularProgressIndicator(
+            color: ColorsManager.tertiary,
+          ),
+        );
+      }
+      else if (state is ArticleErrorState){
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(child: Text(state.msg)),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
 
-        var response = snapshot.data;
-        if (response?.status == 'error') {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(response?.message ?? 'Something went wrong'),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
+                  });
+                },
+                child: const Text('Try Again'),
+              ),
+            ],
+          ),
+        );
+      }
+      else if (state is EmptyState){
+        return Center(child: Text('No Articles Found ' ,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 25),),);
+      }
 
-                    });
-                  },
-                  child:const Text('Try Again'),
-                ),
-              ],
-            ),
-          );
-        }
-        final articles = response?.articles ?? [];
-
+      else {
+        var articles = (state as ArticleSuccessState).articles;
         return ListView.separated(
-           itemBuilder: (context, index) => ArticleItem(article: articles[index], ),
-           separatorBuilder: (context, index) => SizedBox(height: 16.h,),
-           itemCount: articles.length);
-    },);
+            itemBuilder: (context, index) => ArticleItem(article: articles[index], ),
+            separatorBuilder: (context, index) => SizedBox(height: 16.h,),
+            itemCount: articles.length);
+      }
+
+    },),
+    );
   }
 }
-
-
