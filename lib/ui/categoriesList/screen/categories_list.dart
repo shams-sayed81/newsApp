@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_app/core/strings_manager.dart';
 
-import '../../../model/CategoryModel.dart';
+import '../../../Data/model/CategoryModel.dart';
 import '../../home/widgets/category.dart';
 
 class CategoriesList extends StatelessWidget {

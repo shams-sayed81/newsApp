@@ -3,12 +3,14 @@ import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:http/http.dart' as http;
 import 'package:new_app/core/remote/constants.dart';
-import 'package:new_app/model/ArticlesResponse/ArticlesResponse.dart';
-import 'package:new_app/model/SourcesResponses/SourcesResponses.dart';
+
+
+import '../../Data/model/ArticlesResponse/ArticlesResponse.dart';
+import '../../Data/model/SourcesResponses/SourcesResponses.dart';
 
 class ApiManager {
 
-  static Future<SourcesResponses?> getSources(String category) async {
+   Future<SourcesResponses> getSources(String category) async {
     Uri uri = Uri.https(baseUrl, '/v2/top-headlines/sources', {
       "apiKey": apikey,
       "category": category
@@ -21,7 +23,7 @@ class ApiManager {
   }
 
 
-  static Future<ArticlesResponse> getArticle(String source)async{
+   Future<ArticlesResponse> getArticle(String source)async{
     //https://newsapi.org/v2/everything?apiKey=3f3c96cff1704d04a75faf559f38432d&sources=the-verge
     Uri uri =Uri.https(baseUrl , "/v2/everything" , {
       "apiKey": apikey,

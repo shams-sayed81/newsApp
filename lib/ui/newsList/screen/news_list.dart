@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/ui/newsList/screen/view_model.dart';
+import '../../../Data/model/CategoryModel.dart';
 import '../../../core/colors_manager.dart';
-import '../../../model/CategoryModel.dart';
 import '../widgets/articles_list.dart';
 
 class NewsList extends StatefulWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:new_app/model/ArticlesResponse/Article.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:url_launcher/url_launcher.dart';
+import '../../../Data/model/ArticlesResponse/Article.dart';
 import '../../../core/colors_manager.dart';
 
 class ArticleItem extends StatelessWidget {

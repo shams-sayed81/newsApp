@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_app/model/CategoryModel.dart';
 
+import '../../../Data/model/CategoryModel.dart';
 import '../../../core/colors_manager.dart';
-
 class Category extends StatelessWidget {
  final CategoryModel categoryModel;
   final void Function (CategoryModel) onCategoryTap ;

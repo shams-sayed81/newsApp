@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_app/core/assets_manager.dart';
 import 'package:new_app/core/strings_manager.dart';
-import 'package:new_app/model/CategoryModel.dart';
 import 'package:new_app/ui/home/widgets/drawer.dart';
 import 'package:new_app/ui/newsList/screen/news_list.dart';
 
+import '../../../Data/model/CategoryModel.dart';
 import '../../categoriesList/screen/categories_list.dart';
 
 class HomeScreen extends StatefulWidget {
