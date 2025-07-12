@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_app/core/Di/di.dart';
 import 'package:new_app/ui/newsList/screen/view_model.dart';
 import '../../../Data/model/CategoryModel.dart';
 import '../../../core/colors_manager.dart';
@@ -17,7 +18,7 @@ class NewsList extends StatefulWidget {
 class _NewsListState extends State<NewsList> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => ViewModel()..getSources(widget.categoryModel.id),
+    return BlocProvider(create: (context) => getIt.get<ViewModel>()..getSources(widget.categoryModel.id ),
     child: BlocBuilder<ViewModel ,NewsStates>(
       builder: (context, state) {
       if (state is NewsLoadingState){

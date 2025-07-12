@@ -9,11 +9,13 @@ import 'package:new_app/ui/newsList/screen/news_list.dart';
 import 'package:new_app/ui/newsList/widgets/article_item.dart';
 import 'package:provider/provider.dart';
 
+import 'core/Di/di.dart';
 import 'core/prefs_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  configureDependencies();
 
   await PrefsHelper.init();
 

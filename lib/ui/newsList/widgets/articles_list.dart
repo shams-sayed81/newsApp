@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_app/core/Di/di.dart';
 import 'package:new_app/ui/newsList/widgets/article_item.dart';
 import 'package:new_app/ui/newsList/widgets/view_model.dart';
 
@@ -18,7 +19,7 @@ class ArticleWidget extends StatefulWidget {
 class _ArticleWidgetState extends State<ArticleWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => ArticlesViewModel()..getSources(widget.source.id!),
+    return BlocProvider(create: (context) =>getIt.get<ArticlesViewModel>()..getArticles(widget.source.id!),
     child: BlocBuilder<ArticlesViewModel , ArticleStates>(builder: (context, state) {
 
       if (state is ArticleLoadingState){

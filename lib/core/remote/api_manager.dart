@@ -2,12 +2,13 @@ import 'dart:convert';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:http/http.dart' as http;
+import 'package:injectable/injectable.dart';
 import 'package:new_app/core/remote/constants.dart';
 
 
 import '../../Data/model/ArticlesResponse/ArticlesResponse.dart';
 import '../../Data/model/SourcesResponses/SourcesResponses.dart';
-
+@singleton
 class ApiManager {
 
    Future<SourcesResponses> getSources(String category) async {
